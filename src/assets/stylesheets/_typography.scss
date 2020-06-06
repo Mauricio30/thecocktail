@@ -1,0 +1,89 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  @extend .ff-Roboto;
+  // font-family: $ff-Roboto;
+  // font-weight: 400;
+  b,
+  &.bold {
+    @extend .ff-Roboto-Bold;
+    // font-family: $ff-Roboto-Bold;
+    // font-weight: 700;
+  }
+}
+
+// h1 {
+//   font-size: $fs-h1;
+//   line-height: 38px;
+// }
+
+// h2 {
+//   font-size: $fs-h2;
+//   line-height: 34px;
+// }
+
+// h3 {
+//   font-size: $fs-h3;
+//   line-height: 29px;
+// }
+
+// h4 {
+//   font-size: $fs-h4;
+//   line-height: 25px;
+// }
+
+// h5 {
+//   font-size: $fs-h5;
+//   line-height: 20px;
+// }
+
+// h6 {
+//   font-size: $fs-h6;
+//   line-height: 18px;
+// }
+
+p {
+  margin: 0;
+  @extend .ff-Roboto;
+  // font-family: $ff-Roboto;
+  // font-weight: 400;
+  // font-size: $fs-paragraph;
+  // line-height: 22px;
+  b,
+  &.bold {
+    @extend .ff-Roboto-Bold;
+    // font-family: $ff-Roboto-Bold;
+    // font-weight: 600;
+  }
+}
+
+a {
+  cursor: pointer;
+  @extend .ff-Roboto;
+  font-size: $fs-btn-link;
+  // font-family: $ff-Roboto;
+  // font-weight: 400;
+  line-height: 21px;
+  text-decoration: none;
+
+  &.underline {
+    text-decoration: underline;
+  }
+}
+
+// input {
+//   font-size: $fs-paragraph;
+//   font-family: $ff-Cabin-Regular;
+//   line-height: 22px;
+// }
+
+button {
+  @extend .ff-Roboto-Bold;
+  // font-family: $ff-Roboto-Bold;
+  font-size: $fs-button;
+  line-height: $lh-button;
+}

@@ -1,0 +1,46 @@
+/*--Spacing system--*/
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-s: 12px;
+$spacing-m: 16px;
+$spacing-l: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+
+/*--Font Family--*/
+$ff-Roboto: 'Roboto', sans-serif;
+// $ff-Roboto-Medium: 'Roboto-Medium', sans-serif;
+// $ff-Roboto-Bold: 'Roboto-Bold', sans-serif;
+// $ff-Roboto-Black: 'Roboto-Black', sans-serif;
+
+/*--Font Size--*/
+$fs-button: 17px;
+$fs-btn-link: 14px;
+$fs-forget-title: 30px;
+$fs-forget-description: 17px;
+$fs-emoji: 40px;
+
+/*--Line Height--*/
+$lh-button: 21px;
+$lh-forget-title: 35px;
+$lh-forget-description: 27px;
+$lh-emoji: 35px;
+
+/*--Colors--*/
+$orange-pale: #fff3e0;
+
+/*--Bootstrap Grid--*/
+$grid-columns: 12;
+$grid-gutter-width: $spacing-m;
+$grid-breakpoints: (
+  // Extra small screen / phone
+    xs: 0,
+  // Small screen / phone
+    sm: 576px,
+  // Medium screen / tablet
+    md: 768px,
+  // Large screen / desktop
+    lg: 992px,
+  // Extra large screen / wide desktop
+    xl: 1200px
+);
