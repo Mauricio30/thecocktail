@@ -18,7 +18,7 @@
     background-size: cover;
     height: 300px;
     padding: 80px 15px;
-    // border-radius: 0 0 40px 40px;
+    border-radius: 0 0 40px 40px;
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
     // min-height: 290px;
@@ -112,34 +112,12 @@
       }
     }
   }
-
-  // &--step-col,
-  // &--email-col {
-  //     margin-bottom: $spacing-xl;
-  // }
-
-  // &--password-col {
-  //     margin-bottom: $spacing-l;
-  // }
-
-  // &--remember-col {
-  //     margin-bottom: $spacing-l;
-  //     display: flex;
-  //     justify-content: space-between;
-  // }
-
-  // &--continue-col {
-  //     margin-bottom: $spacing-s;
-  // }
-
-  // &--alternative-col {
-  //     margin-bottom: $spacing-xl;
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-
-  //     span {
-  //         margin-right: $spacing-m;
-  //     }
-  // }
+  .icon {
+    color: #ffc400;
+    position: absolute;
+    left: 10px;
+    top: 115px;
+    background-color: transparent;
+    border: none;
+  }
 }

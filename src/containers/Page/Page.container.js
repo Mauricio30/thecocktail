@@ -1,20 +1,13 @@
-import React from 'react';
-// import { Breakpoint } from 'react-socks';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { Breakpoint } from 'react-socks';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import RouteAnimate from '../../animations/Route/Route.animation';
-// import StepWelcomeAnimation from '../../animations/SignIn/StepWelcome/StepWelcome.animation';
 import LayoutTemplate from '../../templates/Layout/Layout.template';
-
-// import Dots from '../../animations/frames/Dots/Dots.framer';
-
 import { Row, Col } from '../../components/Grid/Grid.component';
-import Input from '../../components/Input/Input.component';
-// import GoogleLogin from '../../components/GoogleLogin/GoogleLogin.component';
-// import FacebookLogin from '../../components/FacebookLogin/FacebookLogin.component';
-// import { ReactComponent as BannerTheCocktail } from '../../assets/images/Logo.png';
 import Footer from '../Footer/Footer.container';
+import HeaderMobile from '../Header/HeaderMobile/HeaderMobile.container';
+import HeaderDesktop from '../Header/HeaderDesktop/HeaderDesktop.container';
 import './Page.stylesheet.scss';
 
 const CharactersQuery = () => {
@@ -42,43 +35,24 @@ const CharactersQuery = () => {
   );
 };
 
-const PageContainer = ({ routes }) => {
-  console.log(routes);
+const PageContainer = () => {
+  const [focus, setFocus] = useState(false);
+  const [positionInitial, setPosition] = useState(0);
+
   const RenderBanner = () => (
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: 200,
-        scale: 0,
-        borderRadius: ['30%', '50%', '100%']
-      }}
-      animate={{
-        ease: 'easeInOut',
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        borderRadius: ['0', '0', '40px', '40px']
-      }}
-      transition={{
-        duration: 0.25
-      }}
-      className="page_container--bubble"
-      style={{
-        display: 'flex',
-        justifyContent: 'center'
-      }}
-    >
-      <h1 className="page_container--header-title">
-        What we’ll drink tonight?
-      </h1>
-      <Col sm={12} className="page_container--form-input">
-        <Input
-          type="text"
-          placeholder="Search for a drink"
-          iconRight="search"
+    <>
+      <Breakpoint sm down>
+        <HeaderMobile
+          focus={focus}
+          setFocus={setFocus}
+          positionInitial={positionInitial}
+          setPosition={setPosition}
         />
-      </Col>
-    </motion.div>
+      </Breakpoint>
+      <Breakpoint md up>
+        <HeaderDesktop />
+      </Breakpoint>
+    </>
   );
 
   return (
