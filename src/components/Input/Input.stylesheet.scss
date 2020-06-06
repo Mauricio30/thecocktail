@@ -1,0 +1,64 @@
+@import '../../assets/stylesheets/variables';
+
+.input__component {
+  &--input {
+    width: 100%;
+    background-color: #f6f7f9;
+    border: 1px solid #f6f7f9;
+
+    color: #5a5a5a;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 17px;
+
+    border-radius: 23px;
+    padding: $spacing-s $spacing-m;
+    outline: none;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    &:focus {
+      &--wrapper {
+        &-placeholder {
+          color: green;
+        }
+      }
+    }
+    &:enabled {
+      &:focus {
+        // box-shadow: $shadow-m;
+      }
+    }
+    &-disabled {
+      // background-color: $neutral-100;
+    }
+  }
+  &--wrapper {
+    margin-top: 30px;
+    &-placeholder {
+      pointer-events: none;
+      position: absolute;
+      p {
+        font-family: 'Roboto';
+        font-weight: 400;
+        color: #9da1ae;
+        font-size: 17px;
+      }
+    }
+  }
+  .inner-addon {
+    position: relative;
+    cursor: pointer;
+  }
+  .right-addon input {
+    padding-right: 30px;
+  }
+  .inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+    color: #ffc400;
+  }
+  .right-addon .glyphicon {
+    right: 5px;
+  }
+}

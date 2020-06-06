@@ -1,13 +1,10 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';
 import { setDefaultBreakpoints } from 'react-socks';
-
 import PropTypes from '../../utils/PropTypes';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary.component';
-
-import { hideLoading as hideLoadingAction } from '../../actions/Application/Application.action';
+import PageContainer from '../Page/Page.container';
 
 import '../../assets/stylesheets/index.scss';
 
@@ -27,7 +24,7 @@ const AppContainer = ({ isLoading, hideLoading }) => {
         <AnimatePresence exitBeforeEnter>
           <motion.div exit={{ opacity: 0 }}>
             <main>
-              <div> The Cocktail APP</div>
+              <PageContainer />
             </main>
           </motion.div>
         </AnimatePresence>
@@ -41,12 +38,4 @@ AppContainer.propTypes = {
   hideLoading: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  isLoading: state.application.isLoading
-});
-
-const mapDispatchToProps = dispatch => ({
-  hideLoading: () => dispatch(hideLoadingAction())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default AppContainer;

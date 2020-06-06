@@ -1,0 +1,35 @@
+@import '../../assets/stylesheets/variables';
+
+.layout_template {
+  display: flex;
+  flex-direction: column;
+
+  &--full_screen {
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--paw {
+    @media screen and (min-width: map-get($grid-breakpoints, 'md')) {
+      position: relative;
+      z-index: 1;
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.2;
+        z-index: -1;
+        background-image: url(../../assets/images/huellitas.png);
+        background-size: cover;
+      }
+    }
+  }
+}

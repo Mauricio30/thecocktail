@@ -1,16 +1,20 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { BreakpointProvider } from 'react-socks';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 import App from '../App/App';
-import Store from '../../Store';
+
+const client = new ApolloClient({
+  uri: 'https://rickandmortyapi.com/graphql'
+});
 
 const AppProvider = () => {
   return (
-    <Provider store={Store}>
+    <ApolloProvider client={client}>
       <BreakpointProvider>
         <App />
       </BreakpointProvider>
-    </Provider>
+    </ApolloProvider>
   );
 };
 
