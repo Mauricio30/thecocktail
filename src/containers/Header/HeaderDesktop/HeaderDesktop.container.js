@@ -32,7 +32,7 @@ const HeaderDesktop = () => {
       <h1 className="page_container--header-title">
         What we’ll drink tonight?
       </h1>
-      <Col sm={12} className="page_container--form-input">
+      <Col sm={6} className="page_container--form-input">
         <Input
           type="text"
           placeholder="Search for a drink"

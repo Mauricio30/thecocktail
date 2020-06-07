@@ -1,0 +1,8 @@
+.filter_container {
+  &--tab-title {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 18px;
+  }
+}
