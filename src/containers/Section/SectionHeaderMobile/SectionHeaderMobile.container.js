@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
-import '../../PopularDrinks/PopularDrinks.stylesheet.scss';
+import './header.scss';
 
 const SectionHeaderMobile = ({
   title,
