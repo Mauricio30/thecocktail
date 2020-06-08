@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/jsx-curly-brace-presence */
 import React, { useState, useEffect } from 'react';
 import { Breakpoint } from 'react-socks';
 import { connect } from 'react-redux';
