@@ -1,53 +1,65 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Breakpoint } from 'react-socks';
 import StarRatings from 'react-star-ratings';
-import FooterImg from '../../assets/images/Logo.png';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 import SectionMobile from '../Section/SectionHeaderMobile/SectionHeaderMobile.container';
 
 import './Recommended.stylesheet.scss';
 import { clone } from '../../utils/utils';
 
-const initialRecommended = [
+const QUERY = gql`
   {
-    id: '1',
-    score: 3
-  },
-  {
-    id: '2',
-    score: 4
-  },
-  {
-    id: '3',
-    score: 3
+    recommendedDrinks {
+      id
+      score
+      name
+      thumb
+      complements {
+        name
+      }
+      liquors {
+        name
+      }
+    }
   }
-];
+`;
 
 const Recommended = () => {
-  const [a, setA] = useState(initialRecommended);
+  const { data, error, loading } = useQuery(QUERY);
+  const [recommendedDrinks, setRecommendedDrinks] = useState([]);
 
-  const RecommendedDrinksContentMobile = item => (
+  useEffect(() => {
+    if (!loading || error) {
+      setRecommendedDrinks(data.recommendedDrinks);
+    }
+  }, [loading, data, error]);
+
+  console.log('recommendedDrinks', recommendedDrinks);
+
+  const RecommendedDrinksContentMobile = ({ id, score, name, thumb }) => (
     <div className="recommended_container--card">
       <img
         className="recommended_container--img"
         alt="item"
-        src={FooterImg}
+        src={thumb}
         width={140}
         height={110}
       />
       <div className="recommended_container--card-items">
-        <h2 className="recommended_container--title-img">Titulo</h2>
+        <h2 className="recommended_container--title-img">{name}</h2>
         <span className="recommended_container--tex-img">Ingredientes</span>
         <span className="recommended_container--tex-img">Sabor</span>
         <StarRatings
-          rating={item.score}
+          rating={5}
           starRatedColor="#FFC400"
           starEmptyColor="#E6E6E6"
           starHoverColor="#FFC400"
           changeRating={newScore => {
-            const c = clone(a);
-            c.find(b => b.id === item.id).score = newScore;
-            setA(c);
+            const c = clone(recommendedDrinks);
+            c.find(b => b.id === id).score = newScore;
+            setRecommendedDrinks(c);
           }}
           numberOfStars={5}
           starDimension="20px"
@@ -63,8 +75,8 @@ const Recommended = () => {
       <Breakpoint sm down>
         <SectionMobile title="Recommended" action={() => {}} showButton />
         <div className="recommended_container--content">
-          {a.map(b => {
-            return RecommendedDrinksContentMobile(b);
+          {recommendedDrinks.map(item => {
+            return RecommendedDrinksContentMobile(item);
           })}
         </div>
       </Breakpoint>
