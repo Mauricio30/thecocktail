@@ -5,7 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import App from '../App/App';
 
 const client = new ApolloClient({
-  uri: 'http://ec2-100-26-136-195.compute-1.amazonaws.com/graphql'
+  uri: 'http://192.168.1.6:2500/graphql'
 });
 
 const AppProvider = () => {

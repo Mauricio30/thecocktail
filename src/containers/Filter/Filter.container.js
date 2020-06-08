@@ -67,36 +67,61 @@ const Filter = ({ setSearching }) => {
         <Tabs>
           <TabList className="filter_container--tab-title">
             <Tab>
-              {`Liquors${
-                firstTenSelectedLiquorsList.length > 0
-                  ? ` (${firstTenSelectedLiquorsList.length})`
-                  : ''
-              }`}
+              <div>
+                {`Liquors${
+                  firstTenSelectedLiquorsList.length > 0
+                    ? ` (${firstTenSelectedLiquorsList.length})`
+                    : ''
+                }`}
+              </div>
             </Tab>
             <Tab>
-              {`Complements${
-                firstTenSelectedComplementsList.length > 0
-                  ? ` (${firstTenSelectedComplementsList.length})`
-                  : ''
-              }`}
+              <div>
+                {`Complements${
+                  firstTenSelectedComplementsList.length > 0
+                    ? ` (${firstTenSelectedComplementsList.length})`
+                    : ''
+                }`}
+              </div>
+            </Tab>
+            <Tab disabled>
+              <div>
+                {`Taste${
+                  firstTenSelectedComplementsList.length > 0
+                    ? ` (${firstTenSelectedComplementsList.length})`
+                    : ''
+                }`}
+              </div>
             </Tab>
           </TabList>
 
           <TabPanel>
-            <FilterContent
-              setSelectedList={setSelectedLiquorsList}
-              setList={setLiquorsList}
-              selectedList={firstTenSelectedLiquorsList}
-              list={firstTenLiquorsList}
-            />
+            {!loading && firstTenLiquorsList.length > 0 ? (
+              <FilterContent
+                setSelectedList={setSelectedLiquorsList}
+                setList={setLiquorsList}
+                selectedList={firstTenSelectedLiquorsList}
+                list={firstTenLiquorsList}
+                listAll={liquorsList}
+                label="Liquors"
+              />
+            ) : (
+              <div />
+            )}
           </TabPanel>
           <TabPanel>
-            <FilterContent
-              setSelectedList={setSelectedComplementsList}
-              setList={setComplementsList}
-              selectedList={firstTenSelectedComplementsList}
-              list={firstTenComplementsList}
-            />
+            {!loading && firstTenComplementsList.length > 0 ? (
+              <FilterContent
+                setSelectedList={setSelectedComplementsList}
+                setList={setComplementsList}
+                selectedList={firstTenSelectedComplementsList}
+                list={firstTenComplementsList}
+                listAll={complementsList}
+                label="Complements"
+              />
+            ) : (
+              <div />
+            )}
           </TabPanel>
         </Tabs>
       </Breakpoint>

@@ -1,12 +1,4 @@
 .popular-drink_container {
-  &--header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    color: #242424;
-    margin-bottom: 19px;
-    font-weight: bold;
-  }
   &--content {
     display: flex;
     flex-direction: row;
@@ -39,18 +31,18 @@
       top: 34px;
     }
   }
-  &--button {
-    background-color: transparent;
-    border: none;
-    font-size: 13px;
-    color: #e84f61;
-  }
-  &--line {
-    height: 18px;
-    width: 25%;
-    border-bottom: 1px solid #707070;
-    opacity: 0.1;
-  }
+  // &--button {
+  //   background-color: transparent;
+  //   border: none;
+  //   font-size: 13px;
+  //   color: #e84f61;
+  // }
+  // &--line {
+  //   height: 18px;
+  //   width: 25%;
+  //   border-bottom: 1px solid #707070;
+  //   opacity: 0.1;
+  // }
   &--title-img {
     color: #242424;
     font-size: 16px;
