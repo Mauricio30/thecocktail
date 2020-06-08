@@ -52,7 +52,7 @@ const HeaderMobile = ({
         focus
           ? {
               y: -80,
-              height: '100px',
+              height: '190px',
               paddingLeft: '40px'
             }
           : {
@@ -70,15 +70,36 @@ const HeaderMobile = ({
         justifyContent: 'center'
       }}
     >
-      {focus ? (
-        // eslint-disable-next-line react/button-has-type
+      <motion.button
+        initial={{
+          opacity: focus ? 0 : 1
+        }}
+        animate={{
+          opacity: focus ? 1 : 0
+        }}
+        transition={{
+          duration: 0.5
+        }}
+      >
         <button className="icon" onClick={goBackHandler}>
           <Icon iconName="left" size={30} />
         </button>
-      ) : null}
-      <h1 className="page_container--header-title bold">
-        What we’ll drink tonight?
-      </h1>
+      </motion.button>
+      <motion.h1
+        initial={{
+          opacity: focus ? 1 : 0
+        }}
+        animate={{
+          opacity: focus ? 0 : 1
+        }}
+        transition={{
+          duration: 0.5
+        }}
+      >
+        <h1 className="page_container--header-title bold">
+          What we’ll drink tonight?
+        </h1>
+      </motion.h1>
       <Col sm={12} className="page_container--form-input">
         <Input
           type="text"
@@ -88,6 +109,7 @@ const HeaderMobile = ({
           value={tempSearchText}
           onChange={setTempSearchText}
           onIconClick={searchHandler}
+          focus2={focus}
           onFocus={focusHandler}
         />
       </Col>

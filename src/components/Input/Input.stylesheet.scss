@@ -37,6 +37,12 @@
 
   &--wrapper {
     margin-top: 30px;
+    // margin-top: 35px;
+    // margin-bottom: 35px;
+
+    &.focus {
+      margin-top: 0px;
+    }
 
     &-placeholder {
       pointer-events: none;

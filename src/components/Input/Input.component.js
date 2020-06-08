@@ -35,7 +35,8 @@ const InputComponent = ({
   patternHelper,
   options,
   defaultOption,
-  onChangeSelect
+  onChangeSelect,
+  focus2
 }) => {
   const [error, setError] = useState(false);
   const [focus, setFocus] = useState(false);
@@ -108,7 +109,7 @@ const InputComponent = ({
       )}
     >
       <div className={classNames('input__component--group')}>
-        <div className="input__component--wrapper">
+        <div className={`input__component--wrapper ${focus2 ? 'focus' : ''}`}>
           {placeholder && (
             <motion.label
               initial={{

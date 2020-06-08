@@ -53,7 +53,7 @@ const PageContainer = () => {
   };
   const hideHandler = () => {
     setFocus(false);
-    setPosition(-80);
+    setPosition(-150);
   };
 
   const RenderBanner = () => (
