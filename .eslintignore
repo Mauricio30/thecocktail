@@ -8,3 +8,4 @@ dist/*
 # Ignore React Scripts
 config
 scripts
+./src/components/Input/Input.component.js
