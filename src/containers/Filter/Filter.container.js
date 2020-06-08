@@ -40,6 +40,18 @@ const Filter = () => {
     }
   }, [loading, data, error]);
 
+  const firstTenSelectedLiquorsList = selectedLiquorsList.slice(0, 10);
+  const firstTenLiquorsList = liquorsList.slice(
+    0,
+    10 - firstTenSelectedLiquorsList.length
+  );
+
+  const firstTenSelectedComplementsList = selectedComplementsList.slice(0, 10);
+  const firstTenComplementsList = complementsList.slice(
+    0,
+    10 - firstTenSelectedComplementsList.length
+  );
+
   return (
     <div className="filter_container">
       <SectionMobile title="Filters" action={() => {}} />
@@ -47,14 +59,16 @@ const Filter = () => {
         <Tabs>
           <TabList className="filter_container--tab-title">
             <Tab>
-              {`Liquors ${
-                selectedLiquorsList.length > 0 ? selectedLiquorsList.length : ''
+              {`Liquors${
+                firstTenSelectedLiquorsList.length > 0
+                  ? ` (${firstTenSelectedLiquorsList.length})`
+                  : ''
               }`}
             </Tab>
             <Tab>
-              {`Complements ${
-                selectedComplementsList.length > 0
-                  ? selectedComplementsList.length
+              {`Complements${
+                firstTenSelectedComplementsList.length > 0
+                  ? ` (${firstTenSelectedComplementsList.length})`
                   : ''
               }`}
             </Tab>
@@ -64,16 +78,16 @@ const Filter = () => {
             <FilterContent
               setSelectedList={setSelectedLiquorsList}
               setList={setLiquorsList}
-              selectedList={selectedLiquorsList}
-              list={liquorsList}
+              selectedList={firstTenSelectedLiquorsList}
+              list={firstTenLiquorsList}
             />
           </TabPanel>
           <TabPanel>
             <FilterContent
               setSelectedList={setSelectedComplementsList}
               setList={setComplementsList}
-              selectedList={selectedComplementsList}
-              list={complementsList}
+              selectedList={firstTenSelectedComplementsList}
+              list={firstTenComplementsList}
             />
           </TabPanel>
         </Tabs>
