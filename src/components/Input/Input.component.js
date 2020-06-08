@@ -170,9 +170,9 @@ const InputComponent = ({
               maxLength={maxLength}
             />
             {iconRight && (
-              <i className="glyphicon" onClick={onIconClickHandler}>
+              <div className="glyphicon" onClick={onIconClickHandler}>
                 <Icon iconName={iconRight} size={24} />
-              </i>
+              </div>
             )}
           </div>
           {(helpertext || error) && (
