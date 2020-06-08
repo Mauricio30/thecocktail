@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
