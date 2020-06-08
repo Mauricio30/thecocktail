@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import Store from '../../Store';
 
 const client = new ApolloClient({
-  uri: 'http://ec2-100-26-136-195.compute-1.amazonaws.com/graphql'
+  uri: 'http://locahost:2500/graphql'
 });
 
 const AppProvider = () => {

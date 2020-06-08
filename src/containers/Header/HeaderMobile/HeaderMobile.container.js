@@ -101,17 +101,24 @@ const HeaderMobile = ({
         </h1>
       </motion.h1>
       <Col sm={12} className="page_container--form-input">
-        <Input
-          type="text"
-          placeholder="Search for a drink"
-          iconRight="search"
-          // onKeyUp={setSearchText}
-          value={tempSearchText}
-          onChange={setTempSearchText}
-          onIconClick={searchHandler}
-          focus2={focus}
-          onFocus={focusHandler}
-        />
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            console.log('hola');
+          }}
+        >
+          <Input
+            type="search"
+            placeholder="Search for a drink"
+            iconRight="search"
+            // onKeyUp={setSearchText}
+            value={tempSearchText}
+            onChange={setTempSearchText}
+            onIconClick={searchHandler}
+            focus2={focus}
+            onFocus={focusHandler}
+          />
+        </form>
       </Col>
     </motion.div>
   );
