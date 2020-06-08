@@ -29,7 +29,7 @@ const HeaderDesktop = () => {
         justifyContent: 'center'
       }}
     >
-      <h1 className="page_container--header-title">
+      <h1 className="page_container--header-title bold">
         What we’ll drink tonight?
       </h1>
       <Col sm={6} className="page_container--form-input">

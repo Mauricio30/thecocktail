@@ -7,9 +7,23 @@
 
     & li {
       width: 33vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       &.react-tabs__tab--selected {
         color: #e84f61;
+
+        &:after {
+          content: '';
+          display: inline-block;
+          width: 5px;
+          height: 5px;
+          -moz-border-radius: 2.5px;
+          -webkit-border-radius: 2.5px;
+          border-radius: 2.5px;
+          background-color: #e84f61;
+        }
       }
 
       &:focus {

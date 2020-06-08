@@ -45,7 +45,7 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
           <Icon iconName="left" size={30} />
         </button>
       ) : null}
-      <h1 className="page_container--header-title">
+      <h1 className="page_container--header-title bold">
         What we’ll drink tonight?
       </h1>
       <Col sm={12} className="page_container--form-input">

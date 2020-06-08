@@ -34,7 +34,7 @@ const Filter = () => {
   const [complementsList, setComplementsList] = useState([]);
 
   useEffect(() => {
-    if (!loading || error) {
+    if ((!loading || error) && data) {
       setLiquorsList(data.liquors);
       setComplementsList(data.complements);
     }

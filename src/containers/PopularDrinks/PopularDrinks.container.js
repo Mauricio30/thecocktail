@@ -28,7 +28,7 @@ const PopularDrinks = () => {
   const [popularDrinks, setPopularDrinks] = useState([]);
 
   useEffect(() => {
-    if (!loading || error) {
+    if ((!loading || error) && data) {
       setPopularDrinks(data.popularDrinks);
     }
   }, [loading, data, error]);

@@ -31,7 +31,7 @@ const Recommended = () => {
   const [recommendedDrinks, setRecommendedDrinks] = useState([]);
 
   useEffect(() => {
-    if (!loading || error) {
+    if ((!loading || error) && data) {
       setRecommendedDrinks(data.recommendedDrinks);
     }
   }, [loading, data, error]);
