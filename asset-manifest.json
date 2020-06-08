@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "https://mauricio30.github.io/thecocktail/static/css/main.f323e6f5.chunk.css",
+    "main.js": "https://mauricio30.github.io/thecocktail/static/js/main.129940cc.chunk.js",
+    "main.js.map": "https://mauricio30.github.io/thecocktail/static/js/main.129940cc.chunk.js.map",
+    "runtime-main.js": "https://mauricio30.github.io/thecocktail/static/js/runtime-main.b6d7b808.js",
+    "runtime-main.js.map": "https://mauricio30.github.io/thecocktail/static/js/runtime-main.b6d7b808.js.map",
+    "static/js/2.0f5bc3af.chunk.js": "https://mauricio30.github.io/thecocktail/static/js/2.0f5bc3af.chunk.js",
+    "static/js/2.0f5bc3af.chunk.js.map": "https://mauricio30.github.io/thecocktail/static/js/2.0f5bc3af.chunk.js.map",
+    "index.html": "https://mauricio30.github.io/thecocktail/index.html",
+    "precache-manifest.b77c3b475ad404827aac83d75698dc80.js": "https://mauricio30.github.io/thecocktail/precache-manifest.b77c3b475ad404827aac83d75698dc80.js",
+    "service-worker.js": "https://mauricio30.github.io/thecocktail/service-worker.js",
+    "static/css/main.f323e6f5.chunk.css.map": "https://mauricio30.github.io/thecocktail/static/css/main.f323e6f5.chunk.css.map",
+    "static/js/2.0f5bc3af.chunk.js.LICENSE.txt": "https://mauricio30.github.io/thecocktail/static/js/2.0f5bc3af.chunk.js.LICENSE.txt",
+    "static/media/Footer.43d70c9b.svg": "https://mauricio30.github.io/thecocktail/static/media/Footer.43d70c9b.svg",
+    "static/media/Page.stylesheet.scss": "https://mauricio30.github.io/thecocktail/static/media/Logo1.4208e940.png",
+    "static/media/index.scss": "https://mauricio30.github.io/thecocktail/static/media/Montserrat-Bold.ade91f47.ttf",
+    "static/media/heart.svg": "https://mauricio30.github.io/thecocktail/static/media/heart.c92e2f69.svg",
+    "static/media/heartWhite.svg": "https://mauricio30.github.io/thecocktail/static/media/heartWhite.ec417c35.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6d7b808.js",
+    "static/js/2.0f5bc3af.chunk.js",
+    "static/css/main.f323e6f5.chunk.css",
+    "static/js/main.129940cc.chunk.js"
+  ]
+}
