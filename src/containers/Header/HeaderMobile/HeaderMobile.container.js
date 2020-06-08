@@ -5,13 +5,40 @@ import Input from '../../../components/Input/Input.component';
 import Icon from '../../../components/Icon/Icon.component';
 import '../../Page/Page.stylesheet.scss';
 import { addRecentSearch, getRecentSearch } from '../../../utils/utils';
+import { connect } from 'react-redux';
+import {
+  setTempSearchText as setTempSearchTextAction,
+  setSearchText as setSearchTextAction
+} from '../../../actions/Application/Application.action';
 
-const HeaderMobile = ({ focus, positionInitial, setFocus, setHide }) => {
-  const [searchText, setSearchText] = useState('');
+const HeaderMobile = ({
+  header,
+  setTempSearchText,
+  setSearchText,
+  focus,
+  setFocus,
+  positionInitial,
+  setHide
+}) => {
+  const { tempSearchText, searchText } = header;
+
+  const focusHandler = () => {
+    setTempSearchText(searchText);
+    setFocus();
+  };
+
+  const goBackHandler = () => {
+    setTempSearchText(searchText);
+    setHide();
+  };
 
   const searchHandler = () => {
     if (focus) {
-      if (searchText) addRecentSearch(searchText);
+      if (tempSearchText) {
+        setSearchText(tempSearchText);
+        addRecentSearch(tempSearchText);
+      }
+
       setHide();
     }
   };
@@ -45,7 +72,7 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setHide }) => {
     >
       {focus ? (
         // eslint-disable-next-line react/button-has-type
-        <button className="icon" onClick={setHide}>
+        <button className="icon" onClick={goBackHandler}>
           <Icon iconName="left" size={30} />
         </button>
       ) : null}
@@ -57,13 +84,25 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setHide }) => {
           type="text"
           placeholder="Search for a drink"
           iconRight="search"
-          onKeyUp={setSearchText}
+          // onKeyUp={setSearchText}
+          value={tempSearchText}
+          onChange={setTempSearchText}
           onIconClick={searchHandler}
-          onFocus={setFocus}
+          onFocus={focusHandler}
         />
       </Col>
     </motion.div>
   );
 };
 
-export default HeaderMobile;
+const mapStateToProps = state => ({
+  header: state.application.header
+});
+
+const mapDispatchToProps = dispatch => ({
+  setTempSearchText: tempSearchText =>
+    dispatch(setTempSearchTextAction(tempSearchText)),
+  setSearchText: searchText => dispatch(setSearchTextAction(searchText))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderMobile);

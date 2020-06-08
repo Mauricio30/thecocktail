@@ -3,6 +3,8 @@ import { BreakpointProvider } from 'react-socks';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import App from '../App/App';
+import { Provider } from 'react-redux';
+import Store from '../../Store';
 
 const client = new ApolloClient({
   uri: 'http://ec2-100-26-136-195.compute-1.amazonaws.com/graphql'
@@ -10,11 +12,13 @@ const client = new ApolloClient({
 
 const AppProvider = () => {
   return (
-    <ApolloProvider client={client}>
-      <BreakpointProvider>
-        <App />
-      </BreakpointProvider>
-    </ApolloProvider>
+    <Provider store={Store}>
+      <ApolloProvider client={client}>
+        <BreakpointProvider>
+          <App />
+        </BreakpointProvider>
+      </ApolloProvider>
+    </Provider>
   );
 };
 

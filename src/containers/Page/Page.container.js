@@ -42,9 +42,9 @@ import { getRecentSearch } from '../../utils/utils';
 // };
 
 const PageContainer = () => {
+  const [positionInitial, setPosition] = useState(0);
   const [focus, setFocus] = useState(false);
   const [searching, setSearching] = useState(false);
-  const [positionInitial, setPosition] = useState(0);
 
   const focusHandler = () => {
     setFocus(true);

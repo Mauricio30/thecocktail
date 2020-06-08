@@ -12,12 +12,20 @@ export const isInLSItem = (item, id) => {
   return array.includes(id);
 };
 
-export const checkIdInLSItem = (item, id, shoulBe = true) => {
+export const checkIdInLSItem = (
+  item,
+  id,
+  shoulBe = true,
+  atFirstPosition = false
+) => {
   let array = getArrayFromLS(item);
   const includes = array.includes(id);
 
   if (shoulBe) {
-    if (!includes) array.push(id);
+    if (!includes) {
+      if (atFirstPosition) array.unshift(id);
+      else array.push(id);
+    }
   } else array = array.filter(i => i !== id);
 
   localStorage.setItem(item, JSON.stringify(array));
@@ -40,7 +48,7 @@ export const getRecentSearch = () => {
 };
 
 export const addRecentSearch = searchText => {
-  checkIdInLSItem('recentSearch', searchText);
+  checkIdInLSItem('recentSearch', searchText, true, true);
 };
 
 export const clone = arr => {

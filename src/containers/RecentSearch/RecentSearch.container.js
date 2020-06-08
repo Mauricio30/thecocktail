@@ -4,14 +4,20 @@ import { Breakpoint } from 'react-socks';
 import SectionMobile from '../Section/SectionHeaderMobile/SectionHeaderMobile.container';
 import { getRecentSearch } from '../../utils/utils';
 import Icon from '../../components/Icon/Icon.component';
+import { connect } from 'react-redux';
+import {
+  setTempSearchText as setTempSearchTextAction,
+  setSearchText as setSearchTextAction
+} from '../../actions/Application/Application.action';
 
 import './RecentSearch.stylesheet.scss';
 
-const RecentSearch = ({ setHide }) => {
+const RecentSearch = ({ setTempSearchText, setSearchText, setHide }) => {
   const [recentSearch, setRecentSearch] = useState([]);
 
   const recentSearchClick = searchText => {
-    console.log('look for ', searchText);
+    setTempSearchText(searchText);
+    setSearchText(searchText);
     setHide();
   };
 
@@ -39,7 +45,7 @@ const RecentSearch = ({ setHide }) => {
             showLine={false}
           />
           <div className="recent-search_container--content">
-            {recentSearch.map(searchText => {
+            {recentSearch.slice(0, 4).map(searchText => {
               return RecentSearchContentMobile(searchText);
             })}
           </div>
@@ -50,4 +56,12 @@ const RecentSearch = ({ setHide }) => {
   );
 };
 
-export default RecentSearch;
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+  setTempSearchText: tempSearchText =>
+    dispatch(setTempSearchTextAction(tempSearchText)),
+  setSearchText: searchText => dispatch(setSearchTextAction(searchText))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecentSearch);
