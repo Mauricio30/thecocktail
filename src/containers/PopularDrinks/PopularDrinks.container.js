@@ -9,7 +9,7 @@ import './PopularDrinks.stylesheet.scss';
 const PopularDrinks = () => {
   const PopularDrinksContentMobile = item => (
     <div className="popular-drink_container--item">
-      <Check value={item.value} className="popular-drink_container--icon" />
+      <Check id={item.id} className="popular-drink_container--icon" />
       <img
         className="popular-drink_container--img"
         alt="item"
@@ -24,10 +24,7 @@ const PopularDrinks = () => {
 
   const PopularDrinksContentDesktop = item => (
     <div className="popular-drink_container--item-desktop">
-      <Check
-        value={item.value}
-        className="popular-drink_container--icon-desktop"
-      />
+      <Check id={item.id} className="popular-drink_container--icon-desktop" />
       <img
         className="popular-drink_container--img"
         alt="item"
@@ -40,20 +37,8 @@ const PopularDrinks = () => {
     </div>
   );
 
-  const a = [
-    {
-      id: '1',
-      value: true
-    },
-    {
-      id: '2',
-      value: false
-    },
-    {
-      id: '3',
-      value: true
-    }
-  ];
+  const a = [{ id: '1' }, { id: '2' }, { id: '3' }];
+
   return (
     <div className="popular-drink_container">
       <SectionMobile title="Popular drinks" action={() => {}} showButton />

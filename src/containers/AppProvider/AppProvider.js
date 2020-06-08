@@ -5,7 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import App from '../App/App';
 
 const client = new ApolloClient({
-  uri: 'https://rickandmortyapi.com/graphql'
+  uri: 'http://ec2-100-26-136-195.compute-1.amazonaws.com/graphql'
 });
 
 const AppProvider = () => {

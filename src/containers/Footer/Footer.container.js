@@ -6,7 +6,7 @@ import './Footer.stylesheet.scss';
 const Footer = () => {
   return (
     <div className="footer_container">
-      <span className="footer_container--text">Powered by: &nbsp;</span>
+      <span className="footer_container--text">Powered by &nbsp;</span>
       <FooterImg />
     </div>
   );
