@@ -1,20 +1,43 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import { Breakpoint } from 'react-socks';
-// import gql from 'graphql-tag';
-// import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 import SectionMobile from '../Section/SectionHeaderMobile/SectionHeaderMobile.container';
 import Check from '../../components/CheckFavorite/CheckFavorite.component';
 import { getFavourites } from '../../utils/utils';
 
 import './Favourites.stylesheet.scss';
 
+const QUERY = gql`
+  {
+    popularDrinks {
+      id
+      name
+      thumb
+      complements {
+        name
+      }
+      liquors {
+        name
+      }
+    }
+  }
+`;
+
 const Favourites = () => {
-  const [favourites, setFavourites] = useState(null);
+  const { data, error, loading } = useQuery(QUERY);
+  const [favourites, setFavourites] = useState([]);
+
+  // useEffect(() => {
+  //   if (!favourites) setFavourites(getFavourites);
+  // }, []);
 
   useEffect(() => {
-    if (!favourites) setFavourites(getFavourites);
-  }, []);
+    if ((!loading || error) && data) {
+      setFavourites(data.popularDrinks);
+    }
+  }, [loading, data, error]);
 
   const FavouritesContentMobile = ({ id, name, thumb }) => (
     <div className="favourites_container--item">
