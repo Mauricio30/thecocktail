@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable  react/button-has-type */
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { connect } from 'react-redux';
 import { Col } from '../../../components/Grid/Grid.component';
 import Input from '../../../components/Input/Input.component';
 import Icon from '../../../components/Icon/Icon.component';
-import '../../Page/Page.stylesheet.scss';
 import { addRecentSearch, getRecentSearch } from '../../../utils/utils';
-import { connect } from 'react-redux';
 import {
   setTempSearchText as setTempSearchTextAction,
   setSearchText as setSearchTextAction
 } from '../../../actions/Application/Application.action';
+import '../../Page/Page.stylesheet.scss';
 
 const HeaderMobile = ({
   header,
