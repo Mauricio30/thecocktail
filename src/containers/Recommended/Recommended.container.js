@@ -1,4 +1,6 @@
 /* eslint-disable react/button-has-type */
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useEffect } from 'react';
 import { Breakpoint } from 'react-socks';
 import StarRatings from 'react-star-ratings';

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Col } from '../../../components/Grid/Grid.component';
