@@ -10,8 +10,11 @@ import HeaderMobile from '../Header/HeaderMobile/HeaderMobile.container';
 import HeaderDesktop from '../Header/HeaderDesktop/HeaderDesktop.container';
 import PopularDrinks from '../PopularDrinks/PopularDrinks.container';
 import Recommended from '../Recommended/Recommended.container';
+import Favourites from '../Favourites/Favourites.container';
+import RecentSearch from '../RecentSearch/RecentSearch.container';
 import Filter from '../Filter/Filter.container';
 import './Page.stylesheet.scss';
+import { getRecentSearch } from '../../utils/utils';
 
 // const CharactersQuery = () => {
 //   return (
@@ -39,18 +42,28 @@ import './Page.stylesheet.scss';
 // };
 
 const PageContainer = () => {
+  const [positionInitial, setPosition] = useState(0);
   const [focus, setFocus] = useState(false);
   const [searching, setSearching] = useState(false);
-  const [positionInitial, setPosition] = useState(0);
+
+  const focusHandler = () => {
+    setFocus(true);
+    setPosition(0);
+    console.log('RecentSearchTexts', getRecentSearch());
+  };
+  const hideHandler = () => {
+    setFocus(false);
+    setPosition(-150);
+  };
 
   const RenderBanner = () => (
     <>
       <Breakpoint sm down>
         <HeaderMobile
           focus={focus}
-          setFocus={setFocus}
           positionInitial={positionInitial}
-          setPosition={setPosition}
+          setFocus={focusHandler}
+          setHide={hideHandler}
         />
       </Breakpoint>
       <Breakpoint md up>
@@ -68,16 +81,23 @@ const PageContainer = () => {
         childrenNoContainer={<RenderBanner />}
       >
         <Row>
-          <Col sm={12}>
-            <Filter setSearching={setSearching} />
-            {searching && <span>Hola</span>}
-            <PopularDrinks />
-            <Recommended />
-            {/* <CharactersQuery /> */}
-          </Col>
+          {focus ? (
+            <Col sm={12}>
+              <RecentSearch setHide={hideHandler} />
+              <Favourites />
+            </Col>
+          ) : (
+            <Col sm={12}>
+              <Filter setSearching={setSearching} />
+              {searching && <span>Hola</span>}
+              <PopularDrinks />
+              <Recommended />
+              {/* <CharactersQuery /> */}
+            </Col>
+          )}
         </Row>
       </LayoutTemplate>
-      <Footer />
+      {!focus && <Footer />}
     </RouteAnimate>
   );
 };

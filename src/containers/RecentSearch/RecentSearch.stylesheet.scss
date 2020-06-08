@@ -1,0 +1,27 @@
+.recent-search_container {
+  margin-bottom: 22px;
+
+  &--card {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
+
+    & svg {
+      margin-right: 12px;
+      color: #9a9a9a;
+    }
+  }
+  &--title {
+    font-size: 15px;
+    line-height: 19px;
+    // color: #575757;
+    color: #9a9a9a;
+  }
+}

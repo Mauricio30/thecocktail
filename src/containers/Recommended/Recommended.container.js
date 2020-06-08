@@ -52,7 +52,7 @@ const Recommended = () => {
         <span className="recommended_container--tex-img">Ingredientes</span>
         <span className="recommended_container--tex-img">Sabor</span>
         <StarRatings
-          rating={5}
+          rating={score}
           starRatedColor="#FFC400"
           starEmptyColor="#E6E6E6"
           starHoverColor="#FFC400"

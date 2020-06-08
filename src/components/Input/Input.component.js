@@ -35,10 +35,9 @@ const InputComponent = ({
   patternHelper,
   options,
   defaultOption,
-  onChangeSelect
+  onChangeSelect,
+  focus2
 }) => {
-  // const [IValue, setIValue] = useState(value);
-  const IValue = value;
   const [error, setError] = useState(false);
   const [focus, setFocus] = useState(false);
   const refInput = useRef(null);
@@ -70,12 +69,14 @@ const InputComponent = ({
       regexp = e.currentTarget.checkValidity();
     }
 
-    setError(() => {
-      onChange(valueInput, { error: !regexp });
-      return !regexp && patternHelper;
-    });
+    // setError(() => {
+    //   onChange(valueInput, { error: !regexp });
+    //   return !regexp && patternHelper;
+    // });
     // if (valueInput.length <= minLength || valueInput.length >= maxLength) {
     // }
+
+    if (onChange) onChange(e.currentTarget.value);
   };
 
   const onBlurHandle = () => {
@@ -91,7 +92,7 @@ const InputComponent = ({
   };
 
   const onIconClickHandler = () => {
-    if (onIconClick) onIconClick();
+    if (onIconClick) onIconClick(refInput.current.value);
   };
 
   return (
@@ -108,7 +109,7 @@ const InputComponent = ({
       )}
     >
       <div className={classNames('input__component--group')}>
-        <div className="input__component--wrapper">
+        <div className={`input__component--wrapper ${focus2 ? 'focus' : ''}`}>
           {placeholder && (
             <motion.label
               initial={{
@@ -157,14 +158,14 @@ const InputComponent = ({
               pattern={pattern}
               disabled={disabled || readOnly}
               className={classNames('input__component--input', {
-                'input__component--input-no-empty': value.length > 0,
+                // 'input__component--input-no-empty': value.length > 0,
                 'input__component--input-disabled': disabled
               })}
               onChange={onChangeHanlder}
               onKeyUp={onKeyUpHandler}
               onBlur={onBlurHandle}
               onFocus={onFocusHandle}
-              defaultValue={IValue}
+              value={value}
               minLength={minLength}
               maxLength={maxLength}
             />

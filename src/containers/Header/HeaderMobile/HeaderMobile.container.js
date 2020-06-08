@@ -5,23 +5,41 @@ import Input from '../../../components/Input/Input.component';
 import Icon from '../../../components/Icon/Icon.component';
 import '../../Page/Page.stylesheet.scss';
 import { addRecentSearch, getRecentSearch } from '../../../utils/utils';
+import { connect } from 'react-redux';
+import {
+  setTempSearchText as setTempSearchTextAction,
+  setSearchText as setSearchTextAction
+} from '../../../actions/Application/Application.action';
 
-const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
-  const [searchText, setSearchText] = useState('');
+const HeaderMobile = ({
+  header,
+  setTempSearchText,
+  setSearchText,
+  focus,
+  setFocus,
+  positionInitial,
+  setHide
+}) => {
+  const { tempSearchText, searchText } = header;
 
   const focusHandler = () => {
-    setFocus(true);
-    setPosition(0);
-    console.log('RecentSearchTexts', getRecentSearch());
+    setTempSearchText(searchText);
+    setFocus();
   };
-  const hideHandler = () => {
-    setFocus(false);
-    setPosition(-80);
+
+  const goBackHandler = () => {
+    setTempSearchText(searchText);
+    setHide();
   };
+
   const searchHandler = () => {
     if (focus) {
-      if (searchText) addRecentSearch(searchText);
-      hideHandler();
+      if (tempSearchText) {
+        setSearchText(tempSearchText);
+        addRecentSearch(tempSearchText);
+      }
+
+      setHide();
     }
   };
 
@@ -34,7 +52,7 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
         focus
           ? {
               y: -80,
-              height: '100px',
+              height: '190px',
               paddingLeft: '40px'
             }
           : {
@@ -52,22 +70,46 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
         justifyContent: 'center'
       }}
     >
-      {focus ? (
-        // eslint-disable-next-line react/button-has-type
-        <button className="icon" onClick={hideHandler}>
+      <motion.button
+        initial={{
+          opacity: focus ? 0 : 1
+        }}
+        animate={{
+          opacity: focus ? 1 : 0
+        }}
+        transition={{
+          duration: 0.5
+        }}
+      >
+        <button className="icon" onClick={goBackHandler}>
           <Icon iconName="left" size={30} />
         </button>
-      ) : null}
-      <h1 className="page_container--header-title bold">
-        What we’ll drink tonight?
-      </h1>
+      </motion.button>
+      <motion.h1
+        initial={{
+          opacity: focus ? 1 : 0
+        }}
+        animate={{
+          opacity: focus ? 0 : 1
+        }}
+        transition={{
+          duration: 0.5
+        }}
+      >
+        <h1 className="page_container--header-title bold">
+          What we’ll drink tonight?
+        </h1>
+      </motion.h1>
       <Col sm={12} className="page_container--form-input">
         <Input
           type="text"
           placeholder="Search for a drink"
           iconRight="search"
-          onKeyUp={setSearchText}
+          // onKeyUp={setSearchText}
+          value={tempSearchText}
+          onChange={setTempSearchText}
           onIconClick={searchHandler}
+          focus2={focus}
           onFocus={focusHandler}
         />
       </Col>
@@ -75,4 +117,14 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
   );
 };
 
-export default HeaderMobile;
+const mapStateToProps = state => ({
+  header: state.application.header
+});
+
+const mapDispatchToProps = dispatch => ({
+  setTempSearchText: tempSearchText =>
+    dispatch(setTempSearchTextAction(tempSearchText)),
+  setSearchText: searchText => dispatch(setSearchTextAction(searchText))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderMobile);
