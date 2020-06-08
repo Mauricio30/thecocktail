@@ -1,37 +1,17 @@
-// @font-face {
-//   font-family: 'Roboto';
-//   font-weight: 400;
-//   src: url('./../fonts/Roboto/Roboto-Regular.ttf') format('ttf');
-// }
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: local('Montserrat-Bold'),
+    url(../fonts/Montserrat-Bold.ttf) format('truetype');
+}
 
-// @font-face {
-//   font-family: 'Roboto-Medium';
-//   font-weight: 500;
-//   src: url('./../fonts/Roboto/Roboto-Medium.ttf') format('ttf');
-// }
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: local('Montserrat-Medium'),
+    url(../fonts/Montserrat-Bold.ttf) format('truetype');
+}
 
-// @font-face {
-//   font-family: 'Roboto-Bold';
-//   font-weight: 700;
-//   src: url('./../fonts/Roboto/Roboto-Bold.ttf') format('ttf');
-// }
-
-// @font-face {
-//   font-family: 'Roboto-Black';
-//   font-weight: 900;
-//   src: url('./../fonts/Roboto/Roboto-Black.ttf') format('ttf');
-// }
-
-.ff-Roboto {
-  font-family: $ff-Roboto;
-  font-weight: 400;
-  &-Medium {
-    font-weight: 500;
-  }
-  &-Bold {
-    font-weight: 700;
-  }
-  &-Black {
-    font-weight: 900;
-  }
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: local('Montserrat-Regular'),
+    url(../fonts/Montserrat-Bold.ttf) format('truetype');
 }
