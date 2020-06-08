@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';

@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { BreakpointProvider } from 'react-socks';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import App from '../App/App';
 import { Provider } from 'react-redux';
+import App from '../App/App';
 import Store from '../../Store';
 
 const client = new ApolloClient({
