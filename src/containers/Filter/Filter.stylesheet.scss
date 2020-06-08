@@ -4,5 +4,17 @@
     justify-content: space-around;
     list-style: none;
     font-size: 18px;
+
+    & li {
+      width: 33vw;
+
+      &.react-tabs__tab--selected {
+        color: #e84f61;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 }

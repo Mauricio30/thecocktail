@@ -2,11 +2,12 @@
 
 .page_container {
   &--header-title {
-    color: white;
-    font-size: xx-large;
+    color: $white;
+    font-size: $fs-header-title;
+    line-height: $lh-header-title;
     text-align: center;
-    font-weight: bold;
   }
+
   &--bubble {
     display: flex;
     flex-direction: column;
@@ -20,10 +21,8 @@
     border-radius: 0 0 40px 40px;
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
-    // min-height: 290px;
-    // max-height: 290px;
     overflow: hidden;
-    margin-bottom: 2px;
+    margin-bottom: 21px;
     position: relative;
 
     &-logo {
@@ -111,6 +110,7 @@
       }
     }
   }
+
   .icon {
     color: #ffc400;
     position: absolute;

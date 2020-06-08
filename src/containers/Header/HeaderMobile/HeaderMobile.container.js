@@ -20,8 +20,8 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
             }
           : {
               y: 0,
-              height: '300px',
-              paddingLeft: '0px'
+              height: '300px'
+              // paddingLeft: '0px'
             }
       }
       transition={{

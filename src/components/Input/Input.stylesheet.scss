@@ -3,19 +3,19 @@
 .input__component {
   &--input {
     width: 100%;
-    background-color: #f6f7f9;
+    // background-color: #f6f7f9;
     border: 1px solid #f6f7f9;
-
-    color: #5a5a5a;
+    color: #575757;
     font-family: 'Roboto';
     font-weight: 500;
-    font-size: 17px;
-
+    font-size: 15px;
+    line-height: 19px;
     border-radius: 23px;
     padding: $spacing-s $spacing-m;
     outline: none;
     box-sizing: border-box;
     text-overflow: ellipsis;
+
     &:focus {
       &--wrapper {
         &-placeholder {
@@ -32,11 +32,14 @@
       // background-color: $neutral-100;
     }
   }
+
   &--wrapper {
     margin-top: 30px;
+
     &-placeholder {
       pointer-events: none;
       position: absolute;
+
       p {
         font-family: 'Roboto';
         font-weight: 400;
@@ -45,19 +48,23 @@
       }
     }
   }
+
   .inner-addon {
     position: relative;
     cursor: pointer;
   }
+
   .right-addon input {
     padding-right: 30px;
   }
+
   .inner-addon .glyphicon {
     position: absolute;
     padding: 10px;
     pointer-events: none;
     color: #ffc400;
   }
+
   .right-addon .glyphicon {
     right: 5px;
   }
