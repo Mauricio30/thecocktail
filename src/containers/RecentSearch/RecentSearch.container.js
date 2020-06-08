@@ -3,10 +3,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useEffect } from 'react';
 import { Breakpoint } from 'react-socks';
+import { connect } from 'react-redux';
 import SectionMobile from '../Section/SectionHeaderMobile/SectionHeaderMobile.container';
 import { getRecentSearch } from '../../utils/utils';
 import Icon from '../../components/Icon/Icon.component';
-import { connect } from 'react-redux';
 import {
   setTempSearchText as setTempSearchTextAction,
   setSearchText as setSearchTextAction
