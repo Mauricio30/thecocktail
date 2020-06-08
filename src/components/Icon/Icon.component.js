@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import * as FIcon from 'react-feather';
