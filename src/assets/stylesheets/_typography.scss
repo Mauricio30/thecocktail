@@ -20,10 +20,11 @@ h1 {
   line-height: $lh-h1;
 }
 
-// h2 {
-//   font-size: $fs-h2;
-//   line-height: 34px;
-// }
+h2 {
+  font-size: $fs-h2;
+  line-height: $lh-h1;
+  color: #242424;
+}
 
 // h3 {
 //   font-size: $fs-h3;
@@ -56,6 +57,10 @@ p {
     font-family: $Montserrat-Bold;
     // font-weight: 600;
   }
+}
+
+span {
+  font-family: $Montserrat-Regular;
 }
 
 a {

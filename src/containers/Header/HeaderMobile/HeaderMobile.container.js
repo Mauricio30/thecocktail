@@ -6,22 +6,13 @@ import Icon from '../../../components/Icon/Icon.component';
 import '../../Page/Page.stylesheet.scss';
 import { addRecentSearch, getRecentSearch } from '../../../utils/utils';
 
-const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
+const HeaderMobile = ({ focus, positionInitial, setFocus, setHide }) => {
   const [searchText, setSearchText] = useState('');
 
-  const focusHandler = () => {
-    setFocus(true);
-    setPosition(0);
-    console.log('RecentSearchTexts', getRecentSearch());
-  };
-  const hideHandler = () => {
-    setFocus(false);
-    setPosition(-80);
-  };
   const searchHandler = () => {
     if (focus) {
       if (searchText) addRecentSearch(searchText);
-      hideHandler();
+      setHide();
     }
   };
 
@@ -54,7 +45,7 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
     >
       {focus ? (
         // eslint-disable-next-line react/button-has-type
-        <button className="icon" onClick={hideHandler}>
+        <button className="icon" onClick={setHide}>
           <Icon iconName="left" size={30} />
         </button>
       ) : null}
@@ -68,7 +59,7 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
           iconRight="search"
           onKeyUp={setSearchText}
           onIconClick={searchHandler}
-          onFocus={focusHandler}
+          onFocus={setFocus}
         />
       </Col>
     </motion.div>

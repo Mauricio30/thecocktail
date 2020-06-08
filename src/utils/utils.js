@@ -31,6 +31,10 @@ export const changeLikeState = (drinkId, drinkLike) => {
   checkIdInLSItem('favourites', drinkId, drinkLike);
 };
 
+export const getFavourites = () => {
+  return getArrayFromLS('favourites');
+};
+
 export const getRecentSearch = () => {
   return getArrayFromLS('recentSearch');
 };
