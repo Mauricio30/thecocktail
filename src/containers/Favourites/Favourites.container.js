@@ -1,4 +1,5 @@
 /* eslint-disable react/button-has-type */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { Breakpoint } from 'react-socks';
 import gql from 'graphql-tag';
