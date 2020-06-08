@@ -9,7 +9,7 @@ import App from '../App/App';
 import Store from '../../Store';
 
 const client = new ApolloClient({
-  uri: 'http://locahost:2500/graphql'
+  uri: 'http://localhost:2500/graphql'
 });
 
 const AppProvider = () => {
