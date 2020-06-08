@@ -45,7 +45,12 @@ const FilterContent = ({ setSelectedList, setList, selectedList, list }) => {
         }}
         className="filter-content_container--card-items"
       >
-        <div className="filter-content_container--card-items">
+        <div
+          className="filter-content_container--card-items"
+          onClick={() => {
+            selectedItem(item);
+          }}
+        >
           {itemSelected ? (
             <i
               className="filter-content_container--icon"
@@ -59,16 +64,18 @@ const FilterContent = ({ setSelectedList, setList, selectedList, list }) => {
             <i className="filter-content_container--icon-none" />
           )}
           <div className={className}>
-            <img
-              className="filter-content_container--img"
-              alt="item"
-              src={item.thumb}
-              width={55}
-              height={55}
-              onClick={() => {
-                selectedItem(item);
-              }}
-            />
+            {item.thumb && (
+              <img
+                className="filter-content_container--img"
+                alt="item"
+                src={item.thumb}
+                width={55}
+                height={55}
+                // onClick={() => {
+                //   selectedItem(item);
+                // }}
+              />
+            )}
             <span className="filter-content_container--text-img">
               {item.name}
             </span>

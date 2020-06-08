@@ -20,6 +20,7 @@ const InputComponent = ({
   onKeyUp,
   onBlur,
   onFocus,
+  onIconClick,
   value,
   disabled,
   required,
@@ -87,6 +88,10 @@ const InputComponent = ({
   const onFocusHandle = () => {
     if (onFocus) onFocus();
     setFocus(true);
+  };
+
+  const onIconClickHandler = () => {
+    if (onIconClick) onIconClick();
   };
 
   return (
@@ -164,7 +169,7 @@ const InputComponent = ({
               maxLength={maxLength}
             />
             {iconRight && (
-              <i className="glyphicon">
+              <i className="glyphicon" onClick={onIconClickHandler}>
                 <Icon iconName={iconRight} size={24} />
               </i>
             )}

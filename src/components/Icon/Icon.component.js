@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import * as FIcon from 'react-feather';
 
@@ -11,7 +11,7 @@ const Icon = props => {
     closeCircle: <FIcon.XCircle size={props.size} />,
     close: <FIcon.X size={props.size} />
   };
-  console.log(IconMap, props.iconName);
+
   return IconMap[props.iconName] || IconMap.x;
 };
 

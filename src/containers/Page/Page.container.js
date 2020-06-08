@@ -40,6 +40,7 @@ import './Page.stylesheet.scss';
 
 const PageContainer = () => {
   const [focus, setFocus] = useState(false);
+  const [searching, setSearching] = useState(false);
   const [positionInitial, setPosition] = useState(0);
 
   const RenderBanner = () => (
@@ -68,7 +69,8 @@ const PageContainer = () => {
       >
         <Row>
           <Col sm={12}>
-            <Filter />
+            <Filter setSearching={setSearching} />
+            {searching && <span>Hola</span>}
             <PopularDrinks />
             <Recommended />
             {/* <CharactersQuery /> */}

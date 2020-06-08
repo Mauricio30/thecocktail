@@ -25,7 +25,7 @@ const QUERY = gql`
 
 console.log(QUERY);
 
-const Filter = () => {
+const Filter = ({ setSearching }) => {
   const { data, error, loading } = useQuery(QUERY);
   console.log(data, error, loading);
   const [selectedLiquorsList, setSelectedLiquorsList] = useState([]);
@@ -35,10 +35,18 @@ const Filter = () => {
 
   useEffect(() => {
     if ((!loading || error) && data) {
-      setLiquorsList(data.liquors);
+      setLiquorsList(
+        [{ id: 'noliquor', name: 'No liquor' }].concat(data.liquors)
+      );
       setComplementsList(data.complements);
     }
   }, [loading, data, error]);
+
+  useEffect(() => {
+    if (selectedLiquorsList.length || selectedComplementsList.length)
+      setSearching(true);
+    else setSearching(false);
+  });
 
   const firstTenSelectedLiquorsList = selectedLiquorsList.slice(0, 10);
   const firstTenLiquorsList = liquorsList.slice(

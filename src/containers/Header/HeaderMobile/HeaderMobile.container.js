@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Col } from '../../../components/Grid/Grid.component';
 import Input from '../../../components/Input/Input.component';
 import Icon from '../../../components/Icon/Icon.component';
 import '../../Page/Page.stylesheet.scss';
+import { addRecentSearch, getRecentSearch } from '../../../utils/utils';
 
 const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
+  const [searchText, setSearchText] = useState('');
+
+  const focusHandler = () => {
+    setFocus(true);
+    setPosition(0);
+    console.log('RecentSearchTexts', getRecentSearch());
+  };
+  const hideHandler = () => {
+    setFocus(false);
+    setPosition(-80);
+  };
+  const searchHandler = () => {
+    if (focus) {
+      if (searchText) addRecentSearch(searchText);
+      hideHandler();
+    }
+  };
+
   return (
     <motion.div
       initial={{
@@ -35,13 +54,7 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
     >
       {focus ? (
         // eslint-disable-next-line react/button-has-type
-        <button
-          className="icon"
-          onClick={() => {
-            setFocus(false);
-            setPosition(-80);
-          }}
-        >
+        <button className="icon" onClick={hideHandler}>
           <Icon iconName="left" size={30} />
         </button>
       ) : null}
@@ -53,10 +66,9 @@ const HeaderMobile = ({ focus, positionInitial, setFocus, setPosition }) => {
           type="text"
           placeholder="Search for a drink"
           iconRight="search"
-          onFocus={() => {
-            setFocus(true);
-            setPosition(0);
-          }}
+          onKeyUp={setSearchText}
+          onIconClick={searchHandler}
+          onFocus={focusHandler}
         />
       </Col>
     </motion.div>

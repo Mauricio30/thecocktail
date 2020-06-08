@@ -2,21 +2,41 @@ import { pathRootAplication } from '../environment/environment';
 
 export const formatUrl = url => `${pathRootAplication}${url}`;
 
-export const likeState = drinkId => {
-  const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+export const getArrayFromLS = item => {
+  return JSON.parse(localStorage.getItem(item)) || [];
+};
 
-  return favourites.includes(drinkId);
+export const isInLSItem = (item, id) => {
+  const array = getArrayFromLS(item);
+
+  return array.includes(id);
+};
+
+export const checkIdInLSItem = (item, id, shoulBe = true) => {
+  let array = getArrayFromLS(item);
+  const includes = array.includes(id);
+
+  if (shoulBe) {
+    if (!includes) array.push(id);
+  } else array = array.filter(i => i !== id);
+
+  localStorage.setItem(item, JSON.stringify(array));
+};
+
+export const likeState = drinkId => {
+  return isInLSItem('favourites', drinkId);
 };
 
 export const changeLikeState = (drinkId, drinkLike) => {
-  let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
-  const includes = favourites.includes(drinkId);
+  checkIdInLSItem('favourites', drinkId, drinkLike);
+};
 
-  if (drinkLike) {
-    if (!includes) favourites.push(drinkId);
-  } else favourites = favourites.filter(fav => fav !== drinkId);
+export const getRecentSearch = () => {
+  return getArrayFromLS('recentSearch');
+};
 
-  localStorage.setItem('favourites', JSON.stringify(favourites));
+export const addRecentSearch = searchText => {
+  checkIdInLSItem('recentSearch', searchText);
 };
 
 export const clone = arr => {
